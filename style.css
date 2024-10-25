@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: abhayalibre;
+  src: url("./fonts/abhayalibre-regular-webfont.woff"), url("./fonts/abhayalibre-regular-webfont.woff2");
+}
+
+html {
+  line-height: 1.5;
+  font-size: 20;
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.left-container {
+  flex-basis: 40%;
+  background-image: url("images/claudio-schwarz-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.banner {
+  font-family: abhayalibre;
+  font-size: 140px;
+  height: 1.4em;
+  text-align: center;
+  margin-top: 30%;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.attribution,
+.attribution a {
+  color: white;
+  text-align: center;
+  margin-top: 90%;
+  text-shadow: black 0 0 3px;
+}
