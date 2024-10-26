@@ -87,7 +87,7 @@ body {
 }
 
 .right-container>h2 {
-  margin: 50px 0 50px 0;
+  margin: 40px 0 30px 0;
   max-width: 60ch;
 }
 
@@ -137,6 +137,27 @@ body {
   border: 1px solid rgb(var(--nude));
   border-radius: 5px;
   background-color: rgb(var(--macaron));
+}
+
+.form-input .password-warning {
+  position: relative;
+}
+
+.form-input .password-warning::after {
+  position: absolute;
+  bottom: 0em;
+  font-size: 0.8em;
+  color: red;
+  content: "*Passwords do not match";
+  visibility: hidden;
+}
+
+.form-input input:invalid {
+  border: 1px solid red;
+}
+
+.form-input input:invalid+.password-warning::after {
+  visibility: visible;
 }
 
 .form-input label {
