@@ -1,9 +1,9 @@
 :root {
-  --macaron: #F7DFD4;
-  --blush: #EABCAC;
-  --nude: #E2B091;
-  --chocolat: #874E4C;
-  --cafe-noir: #32485C;
+  --macaron: 255, 246, 243;
+  --blush: 234, 188, 172;
+  --nude: 226, 176, 145;
+  --chocolat: 135, 78, 76;
+  --cafe-noir: 50, 72, 92;
 }
 
 *,
@@ -28,14 +28,14 @@ html {
 body {
   min-height: 100vh;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .left-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: 0 1 30%;
+  min-width: fit-content;
   background-image: url("images/claudio-schwarz-unsplash.jpg");
   background-position: center;
   background-size: cover;
@@ -43,37 +43,47 @@ body {
 }
 
 .banner {
+  position: relative;
   display: flex;
   align-items: baseline;
-  justify-content: space-around;
-  font-family: abhayalibre;
-  font-size: 140px;
-  height: 1.4em;
-  text-align: center;
   margin-top: 30%;
   padding: 0 20px 0 20px;
-  color: #F8F3E6;
-  text-shadow: #f8f3e6da 0 0 12px;
-  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.logo-text {
+  z-index: 1;
+  font-family: abhayalibre;
+  font-size: 9em;
+  color: rgb(var(--macaron));
+  text-shadow: rgb(var(--chocolat)) 0 0 10px;
+}
+
+.banner .header-background {
+  position: absolute;
+  left: 0;
+  bottom: 0.3em;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(var(--nude), 0.5);
 }
 
 .banner svg {
-  filter: drop-shadow(0px 0px 6px #f8f3e6da);
+  filter: drop-shadow(0px 0px 3px rgb(var(--chocolat)));
+  flex: 0 0 100;
 }
 
 .attribution,
 .attribution a {
-  color: #F8F3E6;
+  color: rgb(var(--macaron));
   text-align: center;
-  text-shadow: black 0 0 3px;
+  text-shadow: rgb(var(--cafe-noir)) 0 0 8px;
 }
 
 .right-container {
-  flex: 1 0 60%;
-  min-width: 60vw;
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  background-color: #F7DFD4;
+  background-color: rgba(var(--nude), 0.3);
 }
 
 .right-container>h2 {
@@ -85,18 +95,21 @@ body {
 .right-container .form-row,
 .right-container p {
   padding: 0 40px 0 80px;
+  color: rgb(var(--cafe-noir));
+  text-shadow: 2px 2px 2px rgba(var(--cafe-noir), 0.2);
 }
 
 .right-container a {
   text-decoration: none;
-  color: #7c4846;
+  color: rgb(var(--chocolat));
   font-style: italic;
 }
 
 .form-input-container {
-  background-color: #fff6f3;
+  background-color: rgb(var(--macaron));
+  color: rgb(var(--cafe-noir));
   padding: 20px 0 20px 0;
-  box-shadow: 0px 3px 10px 5px #32485c31;
+  box-shadow: 0px 3px 10px 5px rgba(var(--chocolat), 0.1);
 }
 
 .form-row {
@@ -120,9 +133,10 @@ body {
   font-size: inherit;
   height: 2em;
   max-width: 30ch;
-  border: 1px solid #E2B091;
+  min-width: fit-content;
+  border: 1px solid rgb(var(--nude));
   border-radius: 5px;
-  background-color: #fff6f3;
+  background-color: rgb(var(--macaron));
 }
 
 .form-input label {
@@ -133,18 +147,20 @@ body {
   outline: none;
   border: 1px solid #874E4C;
   box-shadow: 2px 2px 3px 0px #32485c2c;
+  background-color: rgba(var(--blush), 0.1);
 }
 
 button {
   margin: 30px 0 15px 0;
   border: none;
   border-radius: 7px;
-  background-color: #874E4C;
-  color: #F8F3E6;
+  background-color: rgb(var(--chocolat));
+  color: rgb(var(--macaron));
   font-family: inherit;
   font-size: 1.3rem;
   height: 50px;
   width: 200px;
+  box-shadow: 0px 3px 5px 5px rgba(var(--chocolat), 0.1);
 }
 
 button:hover {
@@ -160,6 +176,8 @@ button:active {
   position: relative;
 }
 
+
+
 /* .form-header::after {
   position: absolute;
   top: 5px;
@@ -170,22 +188,50 @@ button:active {
   content: "All forms required.";
 } */
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1100px) {
+
+  body {
+    flex-direction: column;
+  }
+
   .form-row {
     flex-direction: column;
     gap: 0;
+    align-items: center;
   }
 
-  .left-container {
-    flex: 1 0;
+  .form-input input {
+    width: 100vh;
   }
 
-  .right-container {
-    flex: 0 1;
+  .form-header {
+    justify-self: center;
+  }
+
+  .right-container h2,
+  .right-container .form-row,
+  .right-container p {
+    padding: 0 20px 0 20px;
   }
 
   .banner {
-    font-size: 11vw;
-    margin: 30vh auto;
+    padding: 0 3px 0 3px;
+    margin-top: 33px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .banner svg {
+    scale: 80%;
+    align-self: baseline;
+  }
+
+  .logo-text {
+    font-size: 6em;
+  }
+
+  .banner .header-background {
+    background-color: rgba(var(--nude), 0.5);
   }
 }
