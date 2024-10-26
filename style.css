@@ -2,6 +2,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 @font-face {
@@ -17,13 +19,15 @@ html {
 
 body {
   min-height: 100vh;
-  margin: 0;
-  padding: 0;
   display: flex;
+  justify-content: flex-end;
 }
 
 .left-container {
-  flex-basis: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 0 1 30%;
   background-image: url("images/claudio-schwarz-unsplash.jpg");
   background-position: center;
   background-size: cover;
@@ -36,8 +40,9 @@ body {
   height: 1.4em;
   text-align: center;
   margin-top: 30%;
+  padding: 0 20px 0 20px;
   color: #F8F3E6;
-  text-shadow: #F8F3E6 0 0 12px;
+  text-shadow: #f8f3e6da 0 0 12px;
   background-color: rgba(0, 0, 0, 0.6);
 }
 
@@ -45,31 +50,32 @@ body {
 .attribution a {
   color: #F8F3E6;
   text-align: center;
-  margin-top: 90%;
   text-shadow: black 0 0 3px;
 }
 
 .right-container {
-  flex-basis: 60%;
+  flex: 1 0 60%;
+  min-width: 60vw;
   display: flex;
   flex-direction: column;
   background-color: #F7DFD4;
 }
 
 .right-container>h2 {
-  margin-top: 50px;
+  margin: 50px 0 50px 0;
   max-width: 60ch;
 }
 
 .right-container h2,
-.right-container .form-row {
-  padding: 0 40px 0 40px;
+.right-container .form-row,
+.right-container p {
+  padding: 0 40px 0 80px;
 }
 
 .form-input-container {
   background-color: #fff6f3;
   padding: 20px 0 20px 0;
-  box-shadow: 0px 3px 10px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 10px 5px #32485c31;
 }
 
 .form-row {
@@ -94,12 +100,53 @@ body {
   background-color: #fff6f3;
 }
 
+.form-input label {
+  font-size: 0.9em;
+}
+
 .form-input input:focus {
   outline: none;
   border: 1px solid #874E4C;
-  box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 3px 0px #32485c2c;
 }
 
 button {
+  margin-top: 30px;
+  border: none;
+  border-radius: 7px;
   background-color: #874E4C;
+  color: #F8F3E6;
+  font-family: inherit;
+  font-size: 1.3rem;
+  height: 50px;
+  width: 200px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #7c4846;
+}
+
+button:active {
+  background-color: #6b3e3c;
+}
+
+@media only screen and (max-width: 1200px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .left-container {
+    flex: 1 0;
+  }
+
+  .right-container {
+    flex: 0 1;
+  }
+
+  .banner {
+    font-size: 11vw;
+    margin: 30vh auto;
+  }
 }
