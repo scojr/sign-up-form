@@ -193,22 +193,6 @@ button:active {
   background-color: #6b3e3c;
 }
 
-.form-header {
-  position: relative;
-}
-
-
-
-/* .form-header::after {
-  position: absolute;
-  top: 5px;
-  left: 640px;
-  font-size: 16px;
-  font-style: italic;
-  color: #cf3b33;
-  content: "All forms required.";
-} */
-
 @media only screen and (max-width: 1100px) {
 
   body {
